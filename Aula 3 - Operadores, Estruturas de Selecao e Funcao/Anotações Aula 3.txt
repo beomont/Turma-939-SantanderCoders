@@ -1,0 +1,37 @@
+//Aula 3 - 11/11/22 - Operadores, Estruturas de Seleção e Função
+
+
+
+//IF, ELSE IF E ELSE
+import java.util.Scanner;
+
+public class Aula03b {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+       // System.out.println("Digite seu nome: ");
+       // String nome = input.nextLine().toUpperCase();
+
+       /* if(nome.contains("A")){
+            System.out.println("Seu nome contém A. Você está na frente da fila.");
+        } else if (nome.contains("B")) {
+            System.out.println("Seu nome contém B. Você está em segundo na fila.");
+        } else {
+            System.out.println("Você está no fim da fila.");
+        }
+
+        */
+
+        System.out.println("Digite sua idade: ");
+        Integer idade = input.nextInt();
+
+        if (idade < 12){
+            System.out.println("Você é uma criança.");
+        } else if (idade < 18 ) {
+            System.out.println("Você é uma adolescente.");
+        } else if (idade < 60) {
+            System.out.println("Você é um adulto.");
+        } else {
+            System.out.println("Você é um idoso.");
+        }
+    }
+}

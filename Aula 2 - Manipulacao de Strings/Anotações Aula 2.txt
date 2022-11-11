@@ -1,0 +1,110 @@
+//Aula 2 - 09/11/22 - Manipulação de Strings
+
+public class aula02 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        String emailLogin = "email@gmail.com";
+
+        System.out.println("Digite seu e-mail: ");
+        //String email = input.nextLine();
+        String email = "email@gmail.com";
+        //String email = "email@";
+
+        String emailDepoisArroba = email.substring(email.indexOf("@"));
+
+        System.out.println("contem arroba? " +email.contains("@"));
+        System.out.println("contem ponto? " +email.contains("."));
+        System.out.println("Tamanho do email: " +email.length());
+        System.out.println("Tamanho minimo: " +(email.length()>=5));
+        System.out.println("Validar caracteres antes do @: " +(email.indexOf("@")>0));
+        System.out.println(emailDepoisArroba);
+        System.out.println("Validar caracteres entre @ e . : " +(emailDepoisArroba.indexOf(".")>1));
+        System.out.println("Validar caracteres depois do . : " +
+                (emailDepoisArroba.length()>emailDepoisArroba.indexOf(".")+1));
+        
+
+
+
+
+
+        //emailLogin = emailLogin.toLowerCase();
+        //email = email.toLowerCase();
+        System.out.println(emailLogin
+                .toLowerCase()
+                .equals(email
+                        .toLowerCase()
+                       .trim()));
+
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+package aula02;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main2 {
+
+    public static void main(String[] args) {
+
+        Scanner print = new Scanner(System.in);
+
+        System.out.println("Insira o nome: ");
+        //String nome = print.nextLine();
+        String nome = "Pedro Bomfim Costa";
+        //Character primeiraMaiuscula = nome.toUpperCase().charAt(0);
+        //String nomeSemPrimeiraLetra = nome.substring(1);
+        //String nomeInteiro = primeiraMaiuscula + nomeSemPrimeiraLetra;
+        //System.out.println(nomeInteiro);
+
+        //System.out.println("isEmpty: " + nome.isEmpty());
+        //System.out.println("isBlack: " + nome.isBlank());
+
+        System.out.println(Arrays.toString(nome.split(" ")));
+        String primeiroNome = nome.split(" ")[0];
+        String segundoNome = nome.split(" ")[1];
+        String ultimoNome = nome.split(" ")[2];
+
+        String nomeCompleto = primeiroNome + " " + segundoNome + " da " + ultimoNome;
+
+        System.out.println(nomeCompleto);
+
+
+
+    }
+}
+
+
+
+
+
+package aula;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String nome = "Pedro Bomfim Costa";
+		
+		String[] partesNome = nome.split(" ");
+		partesNome[1] += " da"; 
+		
+		nome = String.join(" ", partesNome);
+		
+		//nome = nome.replace("Bomfim", "Bomfim da");
+		System.out.println(String.join(", ", "Pedro","Marcus","João","Maria","Ana"));
+	}
+
+}
