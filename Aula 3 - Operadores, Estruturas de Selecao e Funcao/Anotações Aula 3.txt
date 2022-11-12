@@ -131,3 +131,71 @@ public class Funcoes {
 	
 }
 
+//FUNÇÕES PT2
+
+//
+
+package aula3;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Scanner;
+
+public class Funcoes {
+    public static void main(String[] args) {
+
+        /*
+        String soma = Funcoes.somarValores(5.9, 7.1);
+        System.out.println(soma);
+        */
+
+        Scanner scanner = new Scanner(System.in);
+        Double numero1, numero2;
+
+        System.out.println("Favor informar o primeiro número: ");
+        numero1 = scanner.nextDouble();
+
+        System.out.println("Favor informar o segundo número: ");
+        numero2 = scanner.nextDouble();
+
+        scanner.nextLine();
+
+        System.out.println("Informar a operação desejada (+, -, /, *): ");
+        String operacao = scanner.nextLine().trim();
+
+        switch (operacao) {
+            case "+" -> System.out.println(somarValores(numero1, numero2));
+            case "-" -> System.out.println(subtrairValores(numero1, numero2));
+            case "/" -> System.out.println(dividirValores(numero1, numero2));
+            case "*" -> System.out.println(multiplicarValores(numero1, numero2));
+            default -> System.out.println("Operação não identificada.");
+        }
+
+    }
+
+    public static BigDecimal somarValores(Double primeiroNumero, Double segundoNumero) {
+        BigDecimal numero1 = new BigDecimal(primeiroNumero);
+        BigDecimal numero2 = new BigDecimal(segundoNumero);
+
+        BigDecimal soma = numero1.add(numero2).setScale(10, RoundingMode.UP);
+        return soma;
+    }
+
+    public static String subtrairValores(Double primeiroNumero, Double segundoNumero) {
+        Double resultado = primeiroNumero - segundoNumero;
+        return resultado.toString();
+    }
+
+    public static String dividirValores(Double primeiroNumero, Double segundoNumero) {
+        Double resultado = primeiroNumero / segundoNumero;
+        return resultado.toString();
+    }
+
+    public static String multiplicarValores(Double primeiroNumero, Double segundoNumero) {
+        Double resultado = primeiroNumero * segundoNumero;
+        return resultado.toString();
+    }
+}
+//
+
+
