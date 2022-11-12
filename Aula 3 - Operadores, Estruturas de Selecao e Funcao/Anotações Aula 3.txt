@@ -80,3 +80,54 @@ public class Aula03b {
 
     }
 }
+
+//FUNÇÕES PT1
+
+public class Funcoes {
+	
+	public static void main(String[] args) {		
+		
+		//MÉTODO SEM STATIC
+		Funcoes objetoFuncao = new Funcoes();	
+		String retornoSoma = objetoFuncao.somaValores(2.0, 5.0);		
+		System.out.println(retornoSoma);		
+		System.out.println(objetoFuncao.somaValores(2.0, 5.0));
+		
+		
+		//MÉTODO COM STATIC
+		Funcoes.somaValores2(5.0, 5.0);
+		
+		//AMBOS MÉTODOS STATIC NA MESMA CLASSE
+		somaValores2(5.0, 5.0);
+		
+		
+	}
+	
+	
+	//Acessos funções
+	//private => somente dentro da própria classe
+	//protected => dentro da própria classe/filho
+	//public => acessa em qualquer outra classe do programa/projeto
+	//sem identificação de acesso (package) => apenas classes do mesmo pacote acessam a função
+	
+	//Sem static
+	public String somaValores(Double primeiroNumero, Double segundoNumero) {
+		Double soma = primeiroNumero + segundoNumero;
+		return soma.toString();
+	}
+	
+	//Com static
+	public static String somaValores2(Double primeiroNumero, Double segundoNumero) {
+		Double soma = primeiroNumero + segundoNumero;
+		return soma.toString();
+	}
+	
+	
+	
+	public void imprimirNome() {		
+		System.out.println("");
+	}
+	
+	
+}
+
