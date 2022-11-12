@@ -1,8 +1,6 @@
-//Aula 3 - 11/11/22 - Operadores, Estruturas de Seleção e Função
 
 
-
-//IF, ELSE IF E ELSE
+IF, ELSE IF E ELSE
 import java.util.Scanner;
 
 public class Aula03b {
@@ -33,5 +31,52 @@ public class Aula03b {
         } else {
             System.out.println("Você é um idoso.");
         }
+
+        // System.out.println("Digite sua idade: ");
+        // Integer idade = input.nextInt();
+
+        // if (idade < 12){
+        //     System.out.println("Você é uma criança.");
+        // } else if (idade < 18 ) {
+        //     System.out.println("Você é uma adolescente.");
+        // } else if (idade < 60) {
+        //     System.out.println("Você é um adulto.");
+        // } else {
+        //     System.out.println("Você é um idoso.");
+        // }
+
+
+      SWITCH CASE
+
+        System.out.println("Digite sua faixa de idade: ");
+        String tipoIdade = input.nextLine();
+
+        // switch (tipoIdade){
+        //     case "crianca": System.out.println("Você é uma criança!");
+        //     break;
+        //     case "adolecente": System.out.println("Você é um adolecente!");
+        //     break;
+        //     case "adulto": System.out.println("Você é um adulto!");
+        //     break;
+        //     case "idoso": System.out.println("Você é um idoso!");
+        //     break;
+        //     default : System.out.println("Categoria não encontrada!");
+
+        // }
+
+        switch (tipoIdade){
+            case "crianca","adolecente"-> System.out.println("Você é uma criança!");
+            // case "adolecente" -> System.out.println("Você é um adolecente!");
+            case "adulto"-> System.out.println("Você é um adulto!");
+            case "idoso"-> System.out.println("Você é um idoso!");
+            default -> {System.out.println("Categoria não encontrada!"); 
+            System.out.println("outro comando");}
+
+        }
+        // if (2>1) System.out.println("funciona!");
+        
+        Integer numero1 = tipoIdade.equals("crianca") ? 10 : 20;
+        System.out.println(numero1);
+
     }
 }
