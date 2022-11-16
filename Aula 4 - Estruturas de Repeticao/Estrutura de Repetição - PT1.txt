@@ -1,0 +1,63 @@
+//CÓDIGO ENZO
+import java.util.List;
+import java.util.Scanner;
+
+public class Aula4 {
+
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+
+       /*for (int i=0; i<10; i++) {System.out.println("oi");}
+
+       boolean controle = false;
+
+       while (controle) {
+           System.out.println("1. Cadastrar produto \n 2. Listar produto \n 3. Excluir produto \n 0. Sair do menu \n");
+           int entrada = sc.nextInt();
+           if (entrada==0) controle = false;}
+
+
+       do {
+           System.out.println("1. Cadastrar produto \n 2. Listar produto \n 3. Excluir produto \n 0. Sair do menu \n");
+           int entrada = sc.nextInt();
+           if (entrada==0) controle = true;
+       } while (!controle);*/
+
+       int[] lista = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+       /*repetirInverso(lista, 9);
+       repetir(lista, 0);*/
+
+       /*for (int numero : lista){
+           System.out.println(numero);
+       }*/
+
+       List<String> outraLista = List.of("enzo", "agamenom", "amanda", "pedro");
+
+       outraLista.forEach(
+               item -> {
+                   String primeiraLetra = item.substring(0,1).toUpperCase();
+                   String restoDoNome = item.substring(1,item.length());
+                   String nomeTodo = primeiraLetra + restoDoNome;
+                   System.out.println(nomeTodo);
+               }
+               );
+   }
+
+   public static void repetirInverso(int[] lista, int numeroRepeticao) {
+       if (0 <= numeroRepeticao) {
+           System.out.println(lista[numeroRepeticao]);
+           numeroRepeticao--;
+           repetirInverso(lista, numeroRepeticao);
+       }
+   }
+
+   public static void repetir(int[] lista, int numeroRepeticao) {
+       if (lista.length > numeroRepeticao) {
+           System.out.println(lista[numeroRepeticao]);
+           numeroRepeticao++;
+           repetir(lista, numeroRepeticao);
+       }
+   }
+
+}
