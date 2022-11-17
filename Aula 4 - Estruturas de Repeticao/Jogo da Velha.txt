@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class JogoDaVelha {
+	static Scanner scanner = new Scanner(System.in);
+	static String[][] tabuleiro = {{"_","_","_"}
+							,{"_","_","_"}
+							,{"_","_","_"}};
+	public static void main(String[] args) {
+		boolean continuar = true; 
+		
+		while(continuar) {
+			jogada(1);
+			jogada(2);
+		}
+		
+	}
+	
+	public static void jogada(int jogador) {
+		boolean escolhaCorreta = false;
+		do {
+			System.out.println("Vez do Jogador "+jogador);
+			System.out.println("Escolha a Coluna de 1 a 3");
+			int coluna = scanner.nextInt();
+			System.out.println("Escolha a Linha de 1 a 3");
+			int linha = scanner.nextInt();
+			if(tabuleiro[linha-1][coluna-1].equals("_")) {
+				tabuleiro[linha-1][coluna-1] = (jogador==1)?"X": "O";
+				escolhaCorreta = true;
+			}else {
+				System.out.println("Espaço já selecionado!");
+			}
+			imprimeTabuleiro(tabuleiro);
+		}while(!escolhaCorreta);
+	}
+	
+	public static void imprimeTabuleiro(String[][] tabuleiro) {
+		System.out.println("\n");
+		for(String[] linha : tabuleiro) {
+			for(String coluna : linha) {
+				System.out.print(coluna+"\t");
+			}
+			System.out.println("");
+		}
+		System.out.println("\n");
+	}
+	
+
+}
