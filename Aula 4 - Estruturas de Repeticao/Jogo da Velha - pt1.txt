@@ -1,0 +1,105 @@
+
+package aula;
+
+import java.util.Scanner;
+
+public class Main {
+	
+	   static Scanner scanner = new Scanner(System.in);
+	   static String [][] tabuleiro = {{"_","_","_"}
+	                                   ,{"_","_","_"}
+	                                   ,{"_","_","_"}};
+	   public static void main(String[] args) {
+
+	       boolean continuar = true;
+	       while (continuar) {
+	           jogada(1);
+	           continuar = mostrarResultado();
+	           jogada(2);
+	           continuar = mostrarResultado();
+	       }
+	   }
+	   
+	   
+	   public static Boolean mostrarResultado(){
+		   Integer jogadorVencedor = verificarResultado();
+           if(jogadorVencedor!=null) {
+        	   if(jogadorVencedor.equals(1)) {
+        		   System.out.println("Jogador 01 é o vencedor! =D");
+        	   }else {
+        		   System.out.println("Jogador 02 é o vencedor! =D");
+        	   }
+        	   return false;
+           }
+           return true;
+	   }
+	   
+	   public static void jogada(int jogador){
+	       boolean escolhaCorreta= false;
+	       do {
+	           System.out.println("Vez do jogador "+jogador+"º");
+	           System.out.println("Escreve a posição da coluna 1 a 3.");
+	           int coluna = scanner.nextInt();
+	           System.out.println("Escreve a posição da linha 1 a 3.");
+	           int linha = scanner.nextInt();
+	           if (tabuleiro[linha-1][coluna-1].equals("_")){
+	               tabuleiro[linha-1][coluna-1] = (jogador==1)?"X":"O";
+	               escolhaCorreta = true;
+	           } else {
+	               System.out.println("Espaço já selecionado!");
+	           }
+
+	           imprimeTabuleiro(tabuleiro);
+	       }while (!escolhaCorreta);
+
+	   }
+	   
+	   
+	   public static Integer verificarResultado(){
+		  
+		  if (
+	       		   !tabuleiro[2][0].equals("_") 
+	       		   && tabuleiro[2][0].equals(tabuleiro[1][1]) 
+	       		   && tabuleiro[1][1].equals(tabuleiro[0][2])) {
+	       	   return tabuleiro[2][0].equals("X")?1:2;
+		  }
+		  
+		  if (
+       		   !tabuleiro[0][0].equals("_") 
+       		   && tabuleiro[0][0].equals(tabuleiro[1][1]) 
+       		   && tabuleiro[1][1].equals(tabuleiro[2][2])) {
+			  return tabuleiro[0][0].equals("X")?1:2;
+          }
+		   
+	       for (int i = 0; i < tabuleiro.length; i++){
+	           if (
+	        		   !tabuleiro[i][0].equals("_") 
+	        		   && tabuleiro[i][0].equals(tabuleiro[i][1]) 
+	        		   && tabuleiro[i][1].equals(tabuleiro[i][2])) {
+	        	   return tabuleiro[i][0].equals("X")?1:2;
+	           }
+	           for (int j = 0; j < tabuleiro[i].length; j++){
+	        	   if (
+		        		   !tabuleiro[0][j].equals("_") 
+		        		   && tabuleiro[0][j].equals(tabuleiro[1][j]) 
+		        		   && tabuleiro[1][j].equals(tabuleiro[2][j])) {
+	        		   return tabuleiro[0][j].equals("X")?1:2;
+		           }
+	           }
+	       }
+	       
+	       return null;
+	   }
+	   
+	   
+	   public static void imprimeTabuleiro(String [][] tabuleiro){
+	       System.out.println("\n");
+	       for (String[] linha : tabuleiro){
+	           for (String coluna : linha){
+	               System.out.print(coluna+"\t");
+	           }
+	           System.out.println();
+	       }
+	       System.out.println("\n");
+	   }
+}
