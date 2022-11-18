@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String[] lista = new String[1];
+        lista[0] = "posição 1";
+
+        String[] lista2 = new String[2];
+        lista2[0] = lista[0];
+        lista2[1] = "posição 2";
+
+        /*Integer comprimentoLista1 = 1;
+        String[] lista1 = new String[comprimentoLista1];
+        lista1[0] = "posição 1";
+
+        String[] lista2 = new String[comprimentoLista1+1;
+        lista2[0] = lista[0];
+
+        for(int i=0; i<comprimentoLista1;i++){
+            lista2[i] = lista1[i];
+        }
+        lista2[1] = "posição 2";
+        * */
+        //List list = new LinkedList(); - Add dinamicamente de um em um
+        Scanner input = new Scanner(System.in);
+        //System.out.println(input);
+        List<String> listaProdutos = new ArrayList(); //Duplica o tamanho a cada vez que precisar
+
+        listaProdutos.add("Creme Dental");
+        listaProdutos.add("Bolsa");
+        listaProdutos.add("Perfume");
+        listaProdutos.add("Fio dental");
+
+       /* for (String item: listaProdutos) {
+            System.out.println(item);
+        }*/
+
+        /* for (int i = 0; i < listaProdutos.size() ; i++) {
+            System.out.println((i+1) + " - " + listaProdutos.get(i));
+        }*/
+
+        /*
+        List<String> listaProdutos = new ArrayList<>();
+        ArrayList<String> listaProdutos2 = new ArrayList<>();
+        */
+        //listaProdutos.sort((primeiroValor, segundoValor) -> primeiroValor.compareTo(segundoValor));
+        //listaProdutos.sort(String::compareTo);
+        Object[] listaPrimitiva = listaProdutos.toArray();
+        listaProdutos.remove(listaProdutos.get(1));
+        System.out.println(listaProdutos);
+
+        //listaProdutos.set(1, "Creme Hidratante");
+        //listaProdutos.sort((primeiroValor, segundoValor) -> segundoValor.compareTo(primeiroValor));
+        //System.out.println(listaProdutos);
+
+        Collections.reverse(listaProdutos);
+        System.out.println(listaProdutos);
+    }
+}
