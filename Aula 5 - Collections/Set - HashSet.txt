@@ -1,0 +1,22 @@
+Set
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Aula5 {
+	public static void main(String[] args) {
+    	Set<String> lista = new HashSet();
+    	lista.add("nome 1");
+    	lista.add("nome 2");
+    	lista.add("nome 3");
+    	lista.add("nome 4");
+    	lista.add("nome 5");
+    	lista.add("nome 6");
+
+    	lista.remove("nome 5");
+
+    	for (String item : lista) {
+        	System.out.println(item);
+ }
+	}
+}
