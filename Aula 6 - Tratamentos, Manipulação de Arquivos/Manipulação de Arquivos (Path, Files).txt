@@ -1,0 +1,31 @@
+package logica.programacao.i;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+
+//  /home/rodrigo/Downloads/Aula07
+public class Aula07FileHandling02 {
+
+   public static void main(String[] args) throws IOException {
+
+	///home/rodrigo/Downloads/Aula07/teste.txt = CAMINHO NO SEU COMPUTADOR, DIRETÓRIO.
+       Path path = Paths.get("/home/rodrigo/Downloads/Aula07/teste.txt");
+       //StandardOpenOption.APPEND como ultimo parametro para não sobrescrever;
+       Files.writeString(path, "Final ~~... \n", StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+
+       List<String> lista = Files.readAllLines(path, StandardCharsets.UTF_8);
+       String listaString = String.join( "\n",lista.toString()
+               .substring(1, lista.toString().length()-1)
+               .split(","));
+       Files.writeString(path, listaString);
+       System.out.println(lista + "\n \n");
+       System.out.println(listaString);
+
+   }
+}
+
