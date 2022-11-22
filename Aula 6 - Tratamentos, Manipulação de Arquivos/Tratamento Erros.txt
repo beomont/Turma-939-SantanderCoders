@@ -1,0 +1,40 @@
+Tratamento de erros
+
+import java.io.File;
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class manipulacao {
+    public static void main(String[] args)  {
+
+        try {
+
+
+            pegarDados();
+            //throw new NullPointerException();
+
+        } catch ( InputMismatchException e){
+            e.printStackTrace();
+            System.out.println("executou o Catch InputMismatchException  " + e.getMessage());
+        } catch ( Exception e){
+            System.out.println("executou o Catch Exception");
+        }
+        finally {
+            System.out.println("executou o Finally"); //Sempre será executado
+        }
+
+    }
+    public static void pegarDados()  {
+        //Scanner input = null;
+        //int dado = input.nextInt();
+        try {
+            File arq = new File("C:\\Users\\CPAM4\\Documents\\maniarquivo\\nomearquivo.txt");
+            arq.createNewFile();
+        }
+        catch (Exception e){
+            System.out.println("Entrou no pegarDados");
+        }
+
+    }
+}

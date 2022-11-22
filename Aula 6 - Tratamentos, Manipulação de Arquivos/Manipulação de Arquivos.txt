@@ -1,0 +1,41 @@
+//Manipulação de Arquivos
+
+import java.io.*;
+
+public class maniArquivos {
+    public static void main(String[] args) throws IOException {
+        File arq = new File("C:\\Users\\CPAM4\\Documents\\maniarquivo\\index.txt");
+
+        PrintWriter escrever = new PrintWriter(new FileOutputStream(arq, false));
+        escrever.println("Primeiro texto");
+        escrever.println("Segundo texto");
+        escrever.println("Terceiro texto");
+        escrever.close();
+
+        BufferedReader leitor = new BufferedReader(new FileReader(arq));
+        String linha = leitor.readLine();
+        System.out.println("linha = " + linha);
+        linha = leitor.readLine();
+        System.out.println("linha = " + linha);
+
+        /*
+        while (leitor.ready()){;
+            String linha = leitor.readLine();
+            System.out.println("linha = " + linha);
+        }
+        */
+
+        leitor.close();
+
+
+
+
+        //arq.createNewFile();
+        /*FileWriter escrever = new FileWriter(arq);
+        //escrever.write("Primeira escrita no arquivo ");
+        escrever.append("Primeiro append \n").append("Segundo append");
+        escrever.close();*/
+
+
+    }
+}
