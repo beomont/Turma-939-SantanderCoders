@@ -1,0 +1,62 @@
+package ui;
+
+import controller.Agenda;
+import enums.TipoContato;
+import model.Contato;
+
+import java.util.Scanner;
+
+
+public class AgendaUI {
+   Agenda agenda = new Agenda();
+   static final Scanner scanner = new Scanner(System.in);
+   private int tamanhoPagina;
+   private int posicaoAtual;
+
+
+   public void adicionar(){
+       System.out.println("Digite o nome do contato: ");
+       String nomeContato = scanner.nextLine();
+       System.out.println("Digite o tipo do contato");
+       String tipoContato = scanner.nextLine();
+       switch (tipoContato){
+
+       }
+      
+       //incompleto... :(
+
+       Contato contato = new
+   }
+
+   public void menuInicial(){
+       System.out.println("Bem vindo(a) a sua agenda");
+       System.out.println("Digite uma das opções abaixo");
+       System.out.println("1-Adicionar um contato");
+       System.out.println("2-Pesquisar por contato");
+       System.out.println("3-Excluir um contato");
+       System.out.println("4-Listar contatos");
+       String opcao = scanner.nextLine();
+
+       switch (opcao){
+           case "1" -> {
+               this.adicionar();
+           }
+           case "2" -> {
+               System.out.println("pesquisado");
+           }
+           case "3" -> {
+               System.out.println("Excluido");
+           }
+           case "4" -> {
+               tamanhoPagina = 2;
+               posicaoAtual = 0;
+               agenda.listar(posicaoAtual, tamanhoPagina).forEach(System.out::println);
+           }
+           default -> System.out.println("Opcao invalida");
+       }
+
+
+   }
+
+
+}
